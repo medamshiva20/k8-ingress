@@ -42,3 +42,16 @@ metadata:
   alb.ingress.kubernetes.io/target-type: ip
   alb.ingress.kubernetes.io/tags: Environment=dev,Project=roboshop
   alb.ingress.kubernetes.io/group.name: sivadevops
+spec:
+ ingressClassName: alb
+  rules:
+  - host: "app1.sivadevops.website"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: app1
+            port:
+              number: 80
